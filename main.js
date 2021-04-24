@@ -9,16 +9,27 @@ fetch("http://localhost:3000/news.json")
     populateNewsCarousel(data.articles);
   });
 
+const mainContent = document.querySelector("section.main-content");
+
+appendCalendar(mainContent);
+
 function populateNewsCarousel(news) {
   for (let i = 0; i < carouselItemCount; i++) {
-    const newsValue = news[i];
-    const newsDiv = createDivForNews(newsValue);
+    const newsDiv = createDiv(news[i].title);
     header.appendChild(newsDiv);
   }
 }
 
-function createDivForNews(newsContents) {
-  const newsArticle = document.createElement("div");
-  newsArticle.innerText = newsContents.title;
-  return newsArticle;
+function createDiv(content) {
+  const newDiv = document.createElement("div");
+  newDiv.innerText = content;
+  return newDiv;
+}
+
+function appendCalendar(parent) {
+  for (let i = 1; i <= 31; i++) {
+    const dayDiv = createDiv(i);
+    dayDiv.classList.add("main-content__day");
+    parent.appendChild(dayDiv);
+  }
 }
