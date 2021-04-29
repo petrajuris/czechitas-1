@@ -1,0 +1,13 @@
+div.news-article {
+  background-size: cover;
+  min-height: 18rem;
+  flex: 1 0 0;
+}
+
+div.news-article > span {
+  color: #f7f7f7;
+}
+
+/*# sourceMappingURL=news-article.css.map */
+
+/*# sourceMappingURL=news-article.css.map */

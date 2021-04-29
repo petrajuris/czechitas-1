@@ -3,6 +3,7 @@ html {
   font-family: "Ubuntu", sans-serif;
   box-sizing: border-box;
 }
+
 *,
 ::before,
 ::after {
@@ -17,11 +18,20 @@ body {
   flex-direction: column;
   font-family: "Ubuntu", sans-serif;
 }
-header.header-news {
-  min-height: 18rem;
-  display: flex;
-}
 
-header.header-news > div {
-  flex: 1 0 0;
+header.header-news {
+  & > button {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    opacity: 0.5;
+    &.last {
+      right: 0;
+    }
+  }
+  & > div.header-news__container {
+    display: flex;
+  }
+  position: relative;
+  min-height: 18rem;
 }
