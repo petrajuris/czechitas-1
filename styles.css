@@ -28,7 +28,22 @@ header.header-news > button {
   position: absolute;
   top: 0;
   height: 100%;
-  opacity: 0.5;
+  border: none;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  border-radius: 0;
+  user-select: none;
+  transition: 0.5s;
+}
+
+header.header-news > button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #232323;
+}
+
+header.header-news > button:focus {
+  outline: none;
 }
 
 header.header-news > button.last {
@@ -39,8 +54,6 @@ header.header-news > div.header-news__container {
   display: flex;
 }
 
-/*# sourceMappingURL=styles.css.map */
-/*# sourceMappingURL=styles.css.map */
 /*# sourceMappingURL=styles.css.map */
 
 /*# sourceMappingURL=styles.css.map */

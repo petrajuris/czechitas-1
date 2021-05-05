@@ -1,3 +1,4 @@
+@import "colors";
 html {
   font-size: 62.5%;
   font-family: "Ubuntu", sans-serif;
@@ -24,7 +25,20 @@ header.header-news {
     position: absolute;
     top: 0;
     height: 100%;
-    opacity: 0.5;
+    border: none;
+    background-color: transparent;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    border-radius: 0;
+    user-select: none;
+    transition: 0.5s;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      color: $black;
+    }
+    &:focus {
+      outline: none;
+    }
     &.last {
       right: 0;
     }
