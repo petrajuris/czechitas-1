@@ -21,6 +21,7 @@ function populateNewsCarousel(news, startAt) {
     const newsDiv = createDivForNews(newsValue);
     header.appendChild(newsDiv);
   }
+  checkButtonsVisibility();
 }
 
 function createDivForNews(newsContents) {
@@ -40,15 +41,17 @@ const buttonLeft = document.querySelector("#carousel-button-left");
 const buttonRight = document.querySelector("#carousel-button-right");
 
 buttonLeft.addEventListener("click", () => {
-  if (carouselItemStart > 0) {
-    carouselItemStart--;
-  }
+  carouselItemStart--;
   populateNewsCarousel(articles, carouselItemStart);
 });
 
 buttonRight.addEventListener("click", () => {
-  if (carouselItemStart < articles.length - carouselItemCount) {
-    carouselItemStart++;
-  }
+  carouselItemStart++;
   populateNewsCarousel(articles, carouselItemStart);
 });
+
+function checkButtonsVisibility() {
+  buttonLeft.hidden = carouselItemStart <= 0;
+
+  buttonRight.hidden = carouselItemStart >= articles.length - carouselItemCount;
+}
