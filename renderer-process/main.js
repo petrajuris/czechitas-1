@@ -1,3 +1,5 @@
+import { NewsArticle } from "./components/news-article/news-article.js";
+
 const header = document.querySelector(
   "header.header-news > div.header-news__container"
 );
@@ -18,23 +20,11 @@ function populateNewsCarousel(news, startAt) {
   header.innerText = "";
   for (let i = startAt; i < startAt + carouselItemCount; i++) {
     const newsValue = news[i];
-    const newsDiv = createDivForNews(newsValue);
+    const newsArticle = new NewsArticle();
+    const newsDiv = newsArticle.createDivForNews(newsValue);
     header.appendChild(newsDiv);
   }
   checkButtonsVisibility();
-}
-
-function createDivForNews(newsContents) {
-  const newsArticle = document.createElement("div");
-  newsArticle.classList.add("news-article");
-  newsArticle.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), transparent), url(${newsContents.image})`;
-
-  const title = document.createElement("span");
-  title.classList.add("news-article__title");
-
-  title.innerText = newsContents.title;
-  newsArticle.appendChild(title);
-  return newsArticle;
 }
 
 const buttonLeft = document.querySelector("#carousel-button-left");
@@ -55,3 +45,5 @@ function checkButtonsVisibility() {
 
   buttonRight.hidden = carouselItemStart >= articles.length - carouselItemCount;
 }
+
+//Definovat tridu NewsArticle(bez konstruktoru)
