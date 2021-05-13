@@ -31,9 +31,8 @@ export class Carousel {
       i++
     ) {
       const newsValue = this.articles[i];
-      const newsArticle = new NewsArticle();
-      const newsDiv = newsArticle.createDivForNews(newsValue);
-      this.header.appendChild(newsDiv);
+      const newsArticle = new NewsArticle(newsValue);
+      this.header.appendChild(newsArticle);
     }
     this.checkButtonsVisibility();
   }
