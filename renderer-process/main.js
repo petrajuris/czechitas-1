@@ -1,7 +1,7 @@
-import { Carousel } from "./components/carousel/carousel.js";
+import "./components/carousel/carousel.js";
 import { Day } from "./components/day/day.js";
 
-const carousel = new Carousel();
+const carousel = document.querySelector("app-carousel");
 
 fetch("http://localhost:3000/news.json")
   .then((serverResponse) => serverResponse.text())
