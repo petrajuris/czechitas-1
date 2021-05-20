@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* Error: Undefined variable.
+ *    ,
+ * 15 |       color: $black;
+ *    |              ^^^^^^
+ *    '
+ *   renderer-process/components/carousel/carousel.scss 15:14  root stylesheet */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    ╷\a 15 │       color: $black;\a    │              ^^^^^^\a    ╵\a   renderer-process/components/carousel/carousel.scss 15:14  root stylesheet";
+}
+
+/*# sourceMappingURL=carousel.css.map */
+/*# sourceMappingURL=carousel.css.map */
+
+/*# sourceMappingURL=carousel.css.map */
