@@ -1,23 +1,20 @@
-section.main-content {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1rem;
+@charset "UTF-8";
+/* Error: Undefined variable.
+ *   ,
+ * 9 |   background-color: $light-green;
+ *   |                     ^^^^^^^^^^^^
+ *   '
+ *   renderer-process/components/day/day.scss 9:21  root stylesheet */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   ╷\a 9 │   background-color: $light-green;\a   │                     ^^^^^^^^^^^^\a   ╵\a   renderer-process/components/day/day.scss 9:21  root stylesheet";
 }
 
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
-/*# sourceMappingURL=day.css.map */
 /*# sourceMappingURL=day.css.map */
 /*# sourceMappingURL=day.css.map */
 
