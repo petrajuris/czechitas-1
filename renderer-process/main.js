@@ -38,35 +38,68 @@ function showDayModal() {
   modal.querySelector("#close-modal").addEventListener("click", closeAction);
   const cancelButton = modal.querySelector("#cancel-button");
   cancelButton.addEventListener("click", closeAction);
+
   modal.querySelector("#save-button").addEventListener("click", () => {
     const formRef = document.querySelector("#modal-form");
     const formData = new FormData(formRef);
-    const isHoliday = formData.get("isHolidayControl") === "on";
+    const data = formData.entries();
+
+    const object = { };
+    for (let formValue of Data)
+
+
+
+    //const isHoliday = formData.get("isHolidayControl") === "on";
   });
+
   document.body.appendChild(modal);
+
+  let contactsArray;
 
   fetch("http://localhost:3000/contacts")
     .then((serverResponse) => serverResponse.text())
     .then((responseText) => {
-      const data = JSON.parse(responseText);
-      const contactSelect = document.querySelector("#eventAttendees");
-      data.forEach((contact) => {
-        const option = document.createElement("option");
-        option.innerText = `${contact.first_name} ${contact.last_name}`;
-        option.setAttribute("value", contact.id);
-
-        contactSelect.appendChild(option);
-      });
+      contactsArray = JSON.parse(responseText);
+      createOptions(contactsArray);
     });
 
+  const radioButtons = document.querySelectorAll("#genderSelectRow >input");
+
+  for (let radio of radioButtons) {
+    radio.addEventListener("change", () => {
+      const formRef = document.querySelector("#modal-form");
+      const formData = new FormData(formRef);
+      const gender = formData.get("gender");
+      const filteredContacts = contactsArray.filter(
+        (contact) => contact.gender === gender
+      );
+      createOptions(filteredContacts);
+    });
+  }
+
   const genderCheckbox = document.querySelector("#limitAttendeesByGender");
-  const genderRadio = document.querySelector("#genderSelectRow");
+  const genderRadioRow = document.querySelector("#genderSelectRow");
   genderCheckbox.addEventListener("change", (event) => {
     if (event.target.checked) {
-      genderRadio.classList.remove("hidden");
+      genderRadioRow.classList.remove("hidden");
     } else {
-      genderRadio.classList.add("hidden");
+      genderRadioRow.classList.add("hidden");
     }
+  });
+}
+
+function createOptions(contactsArray) {
+  const contactSelect = document.querySelector("#eventAttendees");
+  const oldOptions = document.querySelectorAll(".hakunamatata");
+  oldOptions.forEach((opt) => {
+    contactSelect.removeChild(opt);
+  });
+  contactsArray.forEach((contact) => {
+    const option = document.createElement("option");
+    option.innerText = `${contact.first_name} ${contact.last_name}`;
+    option.setAttribute("value", contact.id);
+    option.classList.add("hakunamatata");
+    contactSelect.appendChild(option);
   });
 }
 
